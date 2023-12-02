@@ -46,6 +46,24 @@ def calculate(line):
     return 10 * front + end
 
 
+def old_calculate(line):
+    front_idx = 0
+    end_idx = len(line) - 1
+    front = -1
+    end = -1
+    while front == -1 or end == -1:
+        if line[front_idx].isdigit():
+            front = int(line[front_idx])
+        else:
+            front_idx += 1
+
+        if line[end_idx].isdigit():
+            end = int(line[end_idx])
+        else:
+            end_idx -= 1
+    return 10 * front + end
+
+
 if __name__ == "__main__":
     with open("input2.txt", "r") as f:
         lines = f.read()
